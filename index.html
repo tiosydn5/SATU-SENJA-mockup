@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Satu Senja Coffee & Eatery — Kopi Spesialti, Roti Bakar & Hidangan Utama Depok</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      /* PALET 3 WARNA KONSISTEN DARI LOGO SATU SENJA */
+      --color-cream: #FDF6EA;       /* 1. Warna Dasar Cream Senja */
+      --color-cream-soft: #F5E6CC;  /* Turunan permukaan dari Cream Senja */
+      --color-espresso: #2B0F06;    /* 2. Warna Tinta & Kontras Utama Cokelat Tua Espresso */
+      --color-senja: #C86428;       /* 3. Warna Aksen Aktif & Promo Terracotta Senja */
+
+      --font-display: 'Plus Jakarta Sans', sans-serif;
+      --font-serif: 'Instrument Serif', serif;
+      --font-sans: 'Inter', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--color-cream);
+      color: var(--color-espresso);
+      margin: 0;
+      overflow-x: hidden;
+    }
+
+    .font-display { font-family: var(--font-display); }
+    .font-serif-editorial { font-family: var(--font-serif); }
+    .font-mono-tabular {
+      font-family: var(--font-mono);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* Garis titik-titik penghubung harga ala papan menu artisan */
+    .menu-leader {
+      background-image: radial-gradient(circle, rgba(43, 15, 6, 0.28) 1px, transparent 1px);
+      background-position: bottom;
+      background-size: 6px 1px;
+      background-repeat: repeat-x;
+    }
+
+    @keyframes spinSlow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .animate-spin-slow {
+      animation: spinSlow 22s linear infinite;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .animate-spin-slow { animation: none; }
+    }
+  </style>
+</head>
+<body class="min-h-screen w-full bg-[#FDF6EA] text-[#2B0F06] antialiased selection:bg-[#C86428] selection:text-[#FDF6EA]">
+
+  <!-- =====================================================================
+       1. STICKY NAVBAR (NAVIGASI SERAGAM + TOMBOL MAPS COKELAT TUA)
+       ===================================================================== -->
+  <header class="sticky top-0 z-40 w-full bg-[#FDF6EA]/95 backdrop-blur-md border-b border-[#2B0F06]/15">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+      
+      <!-- Brand Logo (1:1 SVG dari Logo Satu Senja) -->
+      <a href="#beranda" class="inline-flex items-center gap-3 group shrink-0" aria-label="Satu Senja Beranda">
+        <svg width="36" height="36" viewBox="0 0 100 104" fill="none" class="shrink-0 transition-transform duration-300 group-hover:scale-105">
+          <path d="M 14 30 L 50 9 L 86 30 L 86 58" stroke="#2B0F06" stroke-width="9.5" stroke-linecap="butt" stroke-linejoin="miter"/>
+          <path d="M 14 30 L 86 73 L 50 95 L 14 73 L 14 45" stroke="#2B0F06" stroke-width="9.5" stroke-linecap="butt" stroke-linejoin="miter"/>
+          <path d="M 68 48 L 68 38 L 50 27 L 34 36.5" stroke="#2B0F06" stroke-width="9" stroke-linecap="butt" stroke-linejoin="miter"/>
+          <path d="M 32 56 L 32 66 L 50 77 L 66 67.5" stroke="#2B0F06" stroke-width="9" stroke-linecap="butt" stroke-linejoin="miter"/>
+        </svg>
+        <svg height="26" viewBox="0 0 182 82" fill="none" class="shrink-0" aria-label="Satu Senja">
+          <path d="M 29 10 H 13 C 7.5 10 4.5 13 4.5 17.2 C 4.5 21.4 7.5 23.8 13.5 23.8 H 21.5 C 27.5 23.8 30.5 26.5 30.5 31 C 30.5 35.5 27 38 21 38 H 5" stroke="#2B0F06" stroke-width="6.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M 36 38 L 50 11 C 51.5 8.5 54.5 8.5 56 11 L 70 38" stroke="#2B0F06" stroke-width="6.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M 74 10 H 104 M 89 10 V 38" stroke="#2B0F06" stroke-width="6.2" stroke-linecap="round"/>
+          <path d="M 113 10 V 27 C 113 34 118 38 126 38 C 134 38 139 34 139 27 V 10" stroke="#2B0F06" stroke-width="6.2" stroke-linecap="round"/>
+          <path d="M 29 48 H 13 C 7.5 48 4.5 51 4.5 55.2 C 4.5 59.4 7.5 61.8 13.5 61.8 H 21.5 C 27.5 61.8 30.5 64.5 30.5 69 C 30.5 73.5 27 76 21 76 H 5" stroke="#2B0F06" stroke-width="6.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M 63 48 H 51 C 43 48 38 53.5 38 62 C 38 70.5 43 76 51 76 H 63" stroke="#2B0F06" stroke-width="6.2" stroke-linecap="round"/>
+          <path d="M 49 62 H 60" stroke="#2B0F06" stroke-width="6.2" stroke-linecap="round"/>
+          <path d="M 73 76 V 51 C 73 48.5 76 47.5 78 50 L 96 74 C 98 76.5 101 75.5 101 73 V 48" stroke="#2B0F06" stroke-width="6.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M 112 76 H 122 C 129 76 133 72 133 65 V 48" stroke="#2B0F06" stroke-width="6.2" stroke-linecap="round"/>
+          <path d="M 144 76 V 52 C 144 48 148.5 47 151 50.5 L 171 76" stroke="#2B0F06" stroke-width="6.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+
+      <!-- Desktop Navigation: Semua tautan section 100% seragam, aktif = #C86428, Google Maps = Cokelat Tua #2B0F06 -->
+      <nav class="hidden lg:flex items-center gap-1.5 p-1.5 rounded-full bg-[#F5E6CC]/90 border border-[#2B0F06]/15" aria-label="Navigasi Utama">
+        <a href="#beranda" data-section="beranda" class="nav-pill px-4 py-2 rounded-full text-xs font-bold tracking-wide transition-colors bg-[#C86428] text-[#FDF6EA]">Beranda</a>
+        <a href="#keunggulan" data-section="keunggulan" class="nav-pill px-4 py-2 rounded-full text-xs font-bold tracking-wide transition-colors text-[#2B0F06] hover:bg-[#2B0F06]/10">Keunggulan</a>
+        <a href="#promo" data-section="promo" class="nav-pill px-4 py-2 rounded-full text-xs font-bold tracking-wide transition-colors text-[#2B0F06] hover:bg-[#2B0F06]/10">Promo</a>
+        <a href="#menu" data-section="menu" class="nav-pill px-4 py-2 rounded-full text-xs font-bold tracking-wide transition-colors text-[#2B0F06] hover:bg-[#2B0F06]/10">Menu</a>
+        <a href="#reservasi" data-section="reservasi" class="nav-pill px-4 py-2 rounded-full text-xs font-bold tracking-wide transition-colors text-[#2B0F06] hover:bg-[#2B0F06]/10">Reservasi</a>
+        <span class="w-px h-4 bg-[#2B0F06]/20 mx-1" aria-hidden="true"></span>
+        <a
+          href="https://maps.google.com/?cid=5610806035540478875"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="px-4 py-2 rounded-full text-xs font-bold tracking-wide bg-[#2B0F06] text-[#FDF6EA] hover:bg-[#2B0F06]/85 transition-colors inline-flex items-center gap-1.5"
+        >
+          <svg class="w-3.5 h-3.5 text-[#C86428]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Google Maps</span>
+        </a>
+      </nav>
+
+      <!-- Action Button: Mobile Hamburger Only (Cart Ecosystem Removed) -->
+      <div class="flex items-center gap-2.5 lg:hidden">
+        <button
+          id="mobileMenuBtn"
+          class="p-2.5 rounded-full bg-[#F5E6CC] border border-[#2B0F06]/20 text-[#2B0F06] hover:bg-[#2B0F06] hover:text-[#FDF6EA] transition cursor-pointer"
+          aria-label="Buka Menu Navigasi"
+        >
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer: Seragam untuk semua section, tombol Google Maps cokelat tua #2B0F06 -->
+    <div id="mobileMenuPanel" class="hidden lg:hidden border-t border-[#2B0F06]/15 bg-[#FDF6EA] px-4 pt-3 pb-5 space-y-1.5">
+      <a href="#beranda" data-section="beranda" class="mobile-nav-pill block py-2.5 px-4 rounded-xl font-bold text-sm transition-colors bg-[#C86428] text-[#FDF6EA]">Beranda</a>
+      <a href="#keunggulan" data-section="keunggulan" class="mobile-nav-pill block py-2.5 px-4 rounded-xl font-bold text-sm transition-colors text-[#2B0F06] hover:bg-[#F5E6CC]">Keunggulan</a>
+      <a href="#promo" data-section="promo" class="mobile-nav-pill block py-2.5 px-4 rounded-xl font-bold text-sm transition-colors text-[#2B0F06] hover:bg-[#F5E6CC]">Promo</a>
+      <a href="#menu" data-section="menu" class="mobile-nav-pill block py-2.5 px-4 rounded-xl font-bold text-sm transition-colors text-[#2B0F06] hover:bg-[#F5E6CC]">Menu</a>
+      <a href="#reservasi" data-section="reservasi" class="mobile-nav-pill block py-2.5 px-4 rounded-xl font-bold text-sm transition-colors text-[#2B0F06] hover:bg-[#F5E6CC]">Reservasi</a>
+      <div class="pt-2">
+        <a
+          href="https://maps.google.com/?cid=5610806035540478875"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="w-full py-3 px-4 rounded-xl font-bold text-sm bg-[#2B0F06] text-[#FDF6EA] flex items-center justify-center gap-2"
+        >
+          <svg class="w-4 h-4 text-[#C86428]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Buka Lokasi di Google Maps</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- =====================================================================
+         2. HERO SECTION (CENTERED DI TAMPILAN HP, EDITORIAL SPLIT DI DESKTOP)
+         ===================================================================== -->
+    <section id="beranda" class="relative w-full border-b border-[#2B0F06]/15 overflow-hidden">
+      <!-- Garis kisi arsitektural vertikal halus di latar belakang -->
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-24">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+
+          <!-- Kolom Kiri: Teks & CTA (Rata Tengah di HP, Rata Kiri di Desktop) -->
+          <div class="lg:col-span-7 flex flex-col items-center text-center lg:items-start lg:text-left space-y-6">
+            
+            <!-- Status Jam Operasional Kedai -->
+            <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#F5E6CC] border border-[#2B0F06]/20 text-xs font-semibold text-[#2B0F06]">
+              <span class="w-2 h-2 rounded-full bg-[#C86428]"></span>
+              <span>Buka Setiap Hari • 11.30 – 02.00 WIB • Tugu, Cimanggis Depok</span>
+            </div>
+
+            <!-- Headline Utama dengan Kontras Plus Jakarta Sans & Instrument Serif -->
+            <h1 class="font-display text-4xl sm:text-5xl lg:text-[62px] font-extrabold tracking-tight text-[#2B0F06] leading-[1.06] max-w-2xl">
+              Ruang Teduh, Seduhan Jujur &amp; Rasa yang <span class="font-serif-editorial italic font-normal text-[#C86428] text-5xl sm:text-6xl lg:text-[72px]">Menetap.</span>
+            </h1>
+
+            <p class="text-base sm:text-lg text-[#2B0F06]/80 leading-relaxed max-w-xl">
+              Mulai dari racikan <strong>Es Kopi Senja Aren</strong> yang creamy, roti bakar hangat yang lumer, hingga sepiring <strong>Nasi Goreng Senja</strong> &amp; <strong>Rice Bowl</strong> untuk menemani obrolan malammu hingga pukul dua dini hari.
+            </p>
+
+            <!-- Tombol Aksi Utama (Centered di HP) -->
+            <div class="pt-1 flex flex-wrap items-center justify-center lg:justify-start gap-3.5 w-full sm:w-auto">
+              <a
+                href="#menu"
+                class="w-full sm:w-auto px-8 py-4 rounded-full bg-[#2B0F06] text-[#FDF6EA] hover:bg-[#C86428] font-bold text-sm tracking-wide transition-colors inline-flex items-center justify-center gap-2.5"
+              >
+                <span>Jelajahi Katalog Menu</span>
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </a>
+              <a
+                href="#promo"
+                class="w-full sm:w-auto px-7 py-4 rounded-full bg-[#F5E6CC] hover:bg-[#2B0F06] text-[#2B0F06] hover:text-[#FDF6EA] border border-[#2B0F06]/25 font-bold text-sm transition-colors inline-flex items-center justify-center gap-2"
+              >
+                <span>Lihat Info Promo</span>
+              </a>
+            </div>
+
+            <!-- Strip Metrik Editorial (Warna Font Seragam & Jarak Simetris) -->
+            <div class="w-full pt-8 mt-2 border-t border-[#2B0F06]/15 grid grid-cols-3 divide-x divide-[#2B0F06]/15 max-w-lg mx-auto lg:mx-0">
+              <div class="pr-4 sm:pr-6 text-center lg:text-left">
+                <div class="font-mono-tabular text-xl sm:text-2xl font-extrabold text-[#2B0F06]">15K–35K</div>
+                <div class="text-xs text-[#2B0F06]/75 mt-1 leading-snug">Harga Ramah Kantong</div>
+              </div>
+              <div class="px-4 sm:px-6 text-center lg:text-left">
+                <div class="font-mono-tabular text-xl sm:text-2xl font-extrabold text-[#2B0F06]">25+ Menu</div>
+                <div class="text-xs text-[#2B0F06]/75 mt-1 leading-snug">Kopi, Roti Bakar &amp; Nasi</div>
+              </div>
+              <div class="pl-4 sm:pl-6 text-center lg:text-left">
+                <div class="font-mono-tabular text-xl sm:text-2xl font-extrabold text-[#2B0F06]">02.00 WIB</div>
+                <div class="text-xs text-[#2B0F06]/75 mt-1 leading-snug">Buka Sampai Dini Hari</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Kolom Kanan: Komposisi Visual Arch Editorial (Identitas Racikan Kopi Satu Senja) -->
+          <div class="lg:col-span-5 flex justify-center">
+            <div class="relative w-full max-w-[420px]">
+              
+              <!-- Stempel Berputar Halus di Sudut Kiri Atas -->
+              <div class="absolute -top-6 -left-4 sm:-left-6 z-20 w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-[#FDF6EA] border border-[#2B0F06] flex items-center justify-center shadow-md">
+                <svg viewBox="0 0 100 100" class="w-24 h-24 sm:w-28 sm:h-28 animate-spin-slow">
+                  <defs>
+                    <path id="heroStampCircle" d="M 50, 50 m -38, 0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0" />
+                  </defs>
+                  <text fill="#2B0F06" font-size="6.8" font-weight="700" letter-spacing="1.35">
+                    <textPath href="#heroStampCircle" textLength="232" lengthAdjust="spacing">SATU SENJA COFFEE • CIMANGGIS DEPOK •&#160;</textPath>
+                  </text>
+                </svg>
+                <span class="absolute font-serif-editorial italic text-lg sm:text-xl font-bold text-[#C86428]">Senja</span>
+              </div>
+
+              <!-- Bingkai Kubah Arsitektural (Arch Frame) -->
+              <div class="relative rounded-t-[200px] rounded-b-3xl overflow-hidden border-2 border-[#2B0F06] bg-[#2B0F06]">
+                <img
+                  src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=1000&q=85"
+                  alt="Identitas Kopi Satu Senja"
+                  class="w-full aspect-[4/4.6] object-cover object-center opacity-95"
+                />
+                <!-- Overlay Gradien Halus di Bawah Foto -->
+                <div class="absolute inset-0 bg-gradient-to-t from-[#2B0F06] via-[#2B0F06]/35 to-transparent"></div>
+
+                <!-- Identitas Racikan Kopi Satu Senja (Tanpa Best Seller & Tanpa Harga) -->
+                <div class="absolute bottom-0 inset-x-0 p-5 sm:p-6 text-[#FDF6EA] text-left">
+                  <p class="font-display font-bold text-lg sm:text-xl leading-snug">
+                    Nikmati kopi Satu Senja
+                  </p>
+                  <p class="text-xs text-[#FDF6EA]/85 mt-1 leading-relaxed">
+                    dibuat dengan biji kopi pilhan & asli
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         3. KEUNGGULAN SATU SENJA (PURE TEXT 4 POIN SESUAI SCREENSHOT)
+         ===================================================================== -->
+    <section id="keunggulan" class="w-full border-b border-[#2B0F06]/15 bg-[#F5E6CC]/55">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-18">
+        
+        <!-- Header Keunggulan -->
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4 pb-10 border-b border-[#2B0F06]/20 text-center lg:text-left items-center lg:items-end">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-widest text-[#C86428] block">Karakter Kedai Kami</span>
+            <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-[#2B0F06] mt-1">
+              Kenapa Nongkrong di Satu Senja Lebih Betah?
+            </h2>
+          </div>
+          <p class="text-sm text-[#2B0F06]/80 max-w-md">
+            Dirancang sebagai ruang temu yang hangat di Cimanggis Depok—tempat rasa kopi yang konsisten bertemu dengan makanan mengenyangkan.
+          </p>
+        </div>
+
+        <!-- 4 Kolom Pure Poin Teks (Tanpa Nomor, Tanpa Garis Atas, Tanpa Ikon SVG) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-[#2B0F06]/15">
+          
+          <!-- Keunggulan 1 -->
+          <div class="py-8 md:px-6 first:md:pl-0 last:md:pr-0 flex flex-col items-center text-center lg:items-start lg:text-left group">
+            <h3 class="font-display font-extrabold text-lg text-[#2B0F06] group-hover:text-[#C86428] transition-colors">Racikan Kopi Senja Aren</h3>
+            <p class="text-sm text-[#2B0F06]/80 mt-2 leading-relaxed">
+              Ekstraksi espresso dari biji kopi pilihan yang dipadukan gula aren asli; tersedia opsi <em>Regular</em> maupun <em>Strong</em> bagi pecinta kopi pekat.
+            </p>
+          </div>
+
+          <!-- Keunggulan 2 -->
+          <div class="py-8 md:px-6 first:md:pl-0 last:md:pr-0 flex flex-col items-center text-center lg:items-start lg:text-left group">
+            <h3 class="font-display font-extrabold text-lg text-[#2B0F06] group-hover:text-[#C86428] transition-colors">Cemilan hingga Makanan Berat</h3>
+            <p class="text-sm text-[#2B0F06]/80 mt-2 leading-relaxed">
+              Dari Roti Bakar lumer, Cireng &amp; Mix Platter, hingga Nasi Goreng Cakalang, Rice Bowl Beef Teriyaki, dan Pasta Aglio Olio hangat.
+            </p>
+          </div>
+
+          <!-- Keunggulan 3 -->
+          <div class="py-8 md:px-6 first:md:pl-0 last:md:pr-0 flex flex-col items-center text-center lg:items-start lg:text-left group">
+            <h3 class="font-display font-extrabold text-lg text-[#2B0F06] group-hover:text-[#C86428] transition-colors">Nyaman WFC &amp; Nongkrong Malam</h3>
+            <p class="text-sm text-[#2B0F06]/80 mt-2 leading-relaxed">
+              Dilengkapi koneksi Wi-Fi stabil, colokan listrik di sudut meja, area Indoor AC maupun Semi-Outdoor yang buka sampai jam 2 pagi.
+            </p>
+          </div>
+
+          <!-- Keunggulan 4 -->
+          <div class="py-8 md:px-6 first:md:pl-0 last:md:pr-0 flex flex-col items-center text-center lg:items-start lg:text-left group">
+            <h3 class="font-display font-extrabold text-lg text-[#2B0F06] group-hover:text-[#C86428] transition-colors">Reservasi Mudah &amp; Tersedia di GoFood</h3>
+            <p class="text-sm text-[#2B0F06]/80 mt-2 leading-relaxed">
+              Ingin amankan meja untuk kumpul komunitas atau pesan kopi dari rumah? Tersedia layanan reservasi meja via WhatsApp dan pesan antar GoFood.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         4. PAPAN INFORMASI PROMO SATU SENJA (MURNI BANNER INFORMASI TANPA KLAIM)
+         ===================================================================== -->
+    <section id="promo" class="w-full py-16 sm:py-20 bg-[#2B0F06] text-[#FDF6EA] border-b border-[#2B0F06]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Header Promo (Centered di HP, Kiri-Kanan di Desktop) -->
+        <div class="flex flex-col lg:flex-row items-center lg:items-end justify-between text-center lg:text-left mb-10 gap-4">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#C86428] text-[#FDF6EA] text-xs font-bold uppercase tracking-widest">
+              <span>Papan Informasi Promo Satu Senja</span>
+            </div>
+            <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#FDF6EA] mt-3">
+              Penawaran Spesial &amp; <span class="font-serif-editorial italic font-normal text-[#F5E6CC]">Paket Senja.</span>
+            </h2>
+          </div>
+          <p class="text-sm text-[#FDF6EA]/80 max-w-md">
+            Informasi promo aktif dan paket hemat di kedai Satu Senja. Sampaikan promo yang Anda inginkan langsung kepada kasir saat memesan di tempat.
+          </p>
+        </div>
+
+        <!-- Daftar 3 Banner Informasi Promo dengan Label 1 Baris & Warna 100% Seragam -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+          <!-- BANNER INFORMASI PROMO 1: DISKON 10% MAHASISWA & PELAJAR -->
+          <div class="relative rounded-3xl bg-[#FDF6EA] text-[#2B0F06] overflow-hidden flex flex-col border-2 border-[#F5E6CC]">
+            <div class="relative w-full aspect-[16/9] bg-[#F5E6CC] overflow-hidden">
+              <img
+                src="kopi party.jpg"
+                alt="Promo Diskon 10% Mahasiswa Satu Senja"
+                class="w-full h-full object-cover object-center"
+              />
+              <div class="absolute top-2.5 inset-x-2.5 flex items-center justify-between gap-1">
+                <span class="px-2 py-0.5 rounded-full bg-[#C86428] text-[#FDF6EA] text-[9px] leading-tight font-bold uppercase tracking-tight whitespace-nowrap shadow-xs">
+                  PROMO WFC &amp; TUGAS
+                </span>
+                <span class="px-2 py-0.5 rounded-full bg-[#2B0F06] text-[#FDF6EA] text-[9px] leading-tight font-bold tracking-tight whitespace-nowrap shadow-xs">
+                  Diskon 10%
+                </span>
+              </div>
+            </div>
+
+            <div class="relative border-t-2 border-dashed border-[#2B0F06]/25 my-0">
+              <div class="absolute -top-4 -left-4 w-8 h-8 rounded-full bg-[#2B0F06] z-10"></div>
+              <div class="absolute -top-4 -right-4 w-8 h-8 rounded-full bg-[#2B0F06] z-10"></div>
+            </div>
+
+            <div class="p-5 sm:p-6 flex-1 flex flex-col items-center text-center sm:items-start sm:text-left justify-between">
+              <div class="space-y-2 w-full">
+                <div class="text-[11px] font-bold text-[#C86428] leading-snug">
+                  Senin – Jumat • 11.30 – 17.00 WIB
+                </div>
+                <h3 class="font-display text-lg sm:text-xl font-extrabold text-[#2B0F06] leading-snug">
+                  Diskon 10% Mahasiswa &amp; Pelajar
+                </h3>
+                <p class="text-xs sm:text-sm text-[#2B0F06]/80 leading-relaxed">
+                  Tunjukkan kartu mahasiswa atau kartu pelajar aktif Anda di kasir untuk mendapatkan potongan langsung <strong>10% seluruh menu kopi &amp; minuman</strong>.
+                </p>
+              </div>
+
+              <div class="w-full pt-4 mt-5 border-t border-[#2B0F06]/15 space-y-1.5">
+                <div class="text-[10px] uppercase tracking-wider font-bold text-[#2B0F06]/65">
+                  Benefit Promo
+                </div>
+                <div class="font-mono-tabular text-base sm:text-lg font-extrabold text-[#C86428]">
+                  Potongan 10% All Drink
+                </div>
+                <p class="text-[11px] text-[#2B0F06]/60 italic leading-relaxed pt-1">
+                  Syarat &amp; Ketentuan berlaku. Berlaku untuk pemesanan langsung di kasir.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- BANNER INFORMASI PROMO 2: KOPI SENJA AREN + ROTI BAKAR -->
+          <div class="relative rounded-3xl bg-[#FDF6EA] text-[#2B0F06] overflow-hidden flex flex-col border-2 border-[#F5E6CC]">
+            <div class="relative w-full aspect-[16/9] bg-[#F5E6CC] overflow-hidden">
+              <img
+                src="kopi dan roti.png"
+                alt="Paket Kopi Senja Aren dan Roti Bakar"
+                class="w-full h-full object-cover object-center"
+              />
+              <div class="absolute top-2.5 inset-x-2.5 flex items-center justify-between gap-1">
+                <span class="px-2 py-0.5 rounded-full bg-[#C86428] text-[#FDF6EA] text-[9px] leading-tight font-bold uppercase tracking-tight whitespace-nowrap shadow-xs">
+                  PROMO TEMAN NGOPI
+                </span>
+                <span class="px-2 py-0.5 rounded-full bg-[#2B0F06] text-[#FDF6EA] text-[9px] leading-tight font-bold tracking-tight whitespace-nowrap shadow-xs">
+                  Hemat Rp 9.000
+                </span>
+              </div>
+            </div>
+
+            <div class="relative border-t-2 border-dashed border-[#2B0F06]/25 my-0">
+              <div class="absolute -top-4 -left-4 w-8 h-8 rounded-full bg-[#2B0F06] z-10"></div>
+              <div class="absolute -top-4 -right-4 w-8 h-8 rounded-full bg-[#2B0F06] z-10"></div>
+            </div>
+
+            <div class="p-5 sm:p-6 flex-1 flex flex-col items-center text-center sm:items-start sm:text-left justify-between">
+              <div class="space-y-2 w-full">
+                <div class="text-[11px] font-bold text-[#C86428] leading-snug">
+                  Setiap Hari • 11.30 – 21.00 WIB
+                </div>
+                <h3 class="font-display text-lg sm:text-xl font-extrabold text-[#2B0F06] leading-snug">
+                  Paket Senja Aren + Roti Bakar Lumer
+                </h3>
+                <p class="text-xs sm:text-sm text-[#2B0F06]/80 leading-relaxed">
+                  1 Gelas <strong>Es Kopi Senja Aren</strong> + 1 Porsi <strong>Roti Bakar Choco Cheese / Meltinside</strong> hangat yang lumer di mulut.
+                </p>
+              </div>
+
+              <div class="w-full pt-4 mt-5 border-t border-[#2B0F06]/15 space-y-1.5">
+                <div class="text-[10px] uppercase tracking-wider font-bold text-[#2B0F06]/65">
+                  Harga Paket Promo
+                </div>
+                <div class="flex items-baseline justify-center sm:justify-start gap-2.5">
+                  <span class="font-mono-tabular text-base sm:text-lg font-extrabold text-[#C86428]">Rp 36.000</span>
+                  <span class="font-mono-tabular text-xs text-[#2B0F06]/50 line-through">Rp 45.000</span>
+                </div>
+                <p class="text-[11px] text-[#2B0F06]/60 italic leading-relaxed pt-1">
+                  Syarat &amp; Ketentuan berlaku. Berlaku untuk pemesanan langsung di kasir.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- BANNER INFORMASI PROMO 3: NASI GORENG SENJA + ES KOPI SENJA AREN -->
+          <div class="relative rounded-3xl bg-[#FDF6EA] text-[#2B0F06] overflow-hidden flex flex-col border-2 border-[#F5E6CC]">
+            <div class="relative w-full aspect-[16/9] bg-[#F5E6CC] overflow-hidden">
+              <img
+                src="nasgor dan aren.png"
+                alt="Paket Nasi Goreng Senja dan Es Kopi"
+                class="w-full h-full object-cover object-center"
+              />
+              <div class="absolute top-2.5 inset-x-2.5 flex items-center justify-between gap-1">
+                <span class="px-2 py-0.5 rounded-full bg-[#C86428] text-[#FDF6EA] text-[9px] leading-tight font-bold uppercase tracking-tight whitespace-nowrap shadow-xs">
+                  PROMO MAKAN KENYANG
+                </span>
+                <span class="px-2 py-0.5 rounded-full bg-[#2B0F06] text-[#FDF6EA] text-[9px] leading-tight font-bold tracking-tight whitespace-nowrap shadow-xs">
+                  Hemat Rp 9.000
+                </span>
+              </div>
+            </div>
+
+            <div class="relative border-t-2 border-dashed border-[#2B0F06]/25 my-0">
+              <div class="absolute -top-4 -left-4 w-8 h-8 rounded-full bg-[#2B0F06] z-10"></div>
+              <div class="absolute -top-4 -right-4 w-8 h-8 rounded-full bg-[#2B0F06] z-10"></div>
+            </div>
+
+            <div class="p-5 sm:p-6 flex-1 flex flex-col items-center text-center sm:items-start sm:text-left justify-between">
+              <div class="space-y-2 w-full">
+                <div class="text-[11px] font-bold text-[#C86428] leading-snug">
+                  Setiap Hari • 11.30 – 22.00 WIB
+                </div>
+                <h3 class="font-display text-lg sm:text-xl font-extrabold text-[#2B0F06] leading-snug">
+                  Paket Nasi Goreng Senja + Es Kopi Aren
+                </h3>
+                <p class="text-xs sm:text-sm text-[#2B0F06]/80 leading-relaxed">
+                  1 Porsi <strong>Nasi Goreng Senja / Oriental</strong> spesial + 1 Gelas <strong>Es Kopi Senja Aren</strong> segar. Solusi pas saat lapar!
+                </p>
+              </div>
+
+              <div class="w-full pt-4 mt-5 border-t border-[#2B0F06]/15 space-y-1.5">
+                <div class="text-[10px] uppercase tracking-wider font-bold text-[#2B0F06]/65">
+                  Harga Paket Promo
+                </div>
+                <div class="flex items-baseline justify-center sm:justify-start gap-2.5">
+                  <span class="font-mono-tabular text-base sm:text-lg font-extrabold text-[#C86428]">Rp 39.000</span>
+                  <span class="font-mono-tabular text-xs text-[#2B0F06]/50 line-through">Rp 48.000</span>
+                </div>
+                <p class="text-[11px] text-[#2B0F06]/60 italic leading-relaxed pt-1">
+                  Syarat &amp; Ketentuan berlaku. Berlaku untuk pemesanan langsung di kasir.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         5. KATALOG MENU DIGITAL SATU SENJA (MURNI ETALASE + CTA GOFOOD FULL-WIDTH)
+         ===================================================================== -->
+    <section id="menu" class="w-full py-16 sm:py-22 border-b border-[#2B0F06]/15">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Header Katalog Menu -->
+        <div class="flex flex-col lg:flex-row items-center lg:items-end justify-between text-center lg:text-left gap-4 pb-8 border-b border-[#2B0F06]/15">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-widest text-[#C86428] block">Katalog Digital Satu Senja</span>
+            <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-[#2B0F06] mt-1">
+              Kurasi Kopi, Roti Bakar &amp; Hidangan Utama
+            </h2>
+          </div>
+          <p class="text-sm text-[#2B0F06]/75 max-w-md">
+            Daftar lengkap hidangan dan minuman Satu Senja beserta informasi varian dan harga resmi di kedai kami.
+          </p>
+        </div>
+
+        <!-- Baris Filter Kategori (1 Baris Rata Lurus + Kategori Semua) -->
+        <div class="mt-7 mb-10 overflow-x-auto no-scrollbar">
+          <div id="categoryFilterBar" class="flex items-center justify-start lg:justify-center gap-2 min-w-max py-1"></div>
+        </div>
+
+        <!-- Editorial Menu Ledger Container (Murni Etalase Tanpa Tombol Transaksi) -->
+        <div id="menuBoardContainer" class="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-2"></div>
+
+        <!-- CTA Eksternal Full-Width: Pesan Delivery via GoFood (Tanpa Double Border) -->
+        <div class="mt-10">
+          <a
+            href="https://gofood.link/a/ykzeyuL"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full py-4 sm:py-5 px-6 rounded-2xl bg-[#2B0F06] hover:bg-[#C86428] text-[#FDF6EA] font-display font-extrabold text-sm sm:text-base tracking-wide transition-all duration-300 flex items-center justify-center gap-3 shadow-md group"
+          >
+            <!-- Ikon Tas Belanja / Delivery -->
+            <svg class="w-5 h-5 sm:w-6 sm:h-6 text-[#C86428] group-hover:text-[#FDF6EA] transition-colors shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/>
+              <path d="M3 6h18"/>
+              <path d="M16 10a4 4 0 0 1-8 0"/>
+            </svg>
+            <span>Pesan Delivery via GoFood</span>
+            <svg class="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-1 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         6. RESERVASI MEJA (LANGSUNG TERHUBUNG KE WHATSAPP)
+         ===================================================================== -->
+    <section id="reservasi" class="w-full py-16 sm:py-20 bg-[#F5E6CC]/60 border-b border-[#2B0F06]/15">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+
+          <!-- Kolom Kiri: Informasi Area Ruang Satu Senja -->
+          <div class="lg:col-span-5 space-y-6 text-center lg:text-left">
+            <span class="px-3.5 py-1 rounded-full bg-[#2B0F06] text-[#FDF6EA] text-xs font-bold uppercase tracking-wider inline-block">
+              Reservasi Meja Satu Senja
+            </span>
+            <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-[#2B0F06] leading-tight">
+              Amankan Tempat untuk Bukber, Kumpul Komunitas, atau WFC.
+            </h2>
+            <p class="text-sm sm:text-base text-[#2B0F06]/80 leading-relaxed">
+              Datang ramai-ramai atau butuh meja tenang dengan stopkontak? Isi jadwal kedatanganmu agar barista kami menyiapkan meja terbaik sebelum kamu tiba.
+            </p>
+
+            <!-- Daftar Fasilitas dengan Garis Pembatas Editorial (Warna Teks Kanan Seragam) -->
+            <div class="divide-y divide-[#2B0F06]/15 border-y border-[#2B0F06]/15 text-left">
+              <div class="py-4 flex items-start justify-between gap-4">
+                <div>
+                  <div class="font-display font-bold text-sm text-[#2B0F06]">Area Indoor Full AC</div>
+                  <p class="text-xs text-[#2B0F06]/75 mt-0.5">Bebas asap rokok, tenang untuk laptopan &amp; rapat, stopkontak di setiap meja.</p>
+                </div>
+                <span class="font-mono-tabular text-xs font-bold text-[#2B0F06] shrink-0">Wi-Fi Cepat</span>
+              </div>
+              <div class="py-4 flex items-start justify-between gap-4">
+                <div>
+                  <div class="font-display font-bold text-sm text-[#2B0F06]">Area Semi-Outdoor Teras Senja</div>
+                  <p class="text-xs text-[#2B0F06]/75 mt-0.5">Sirkulasi udara lega, favorit untuk nongkrong sore hingga jam 02.00 dini hari.</p>
+                </div>
+                <span class="font-mono-tabular text-xs font-bold text-[#2B0F06] shrink-0">Smoking Area</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Kolom Kanan: Formulir Reservasi -->
+          <div class="lg:col-span-7">
+            <form id="reservationForm" class="p-6 sm:p-9 rounded-3xl bg-[#FDF6EA] border-2 border-[#2B0F06] space-y-5">
+              <div class="flex items-center justify-between border-b border-[#2B0F06]/15 pb-4">
+                <h3 class="font-display text-lg sm:text-xl font-extrabold text-[#2B0F06]">
+                  Formulir Pemesanan Tempat
+                </h3>
+                <span class="font-mono-tabular text-xs font-bold text-[#C86428]">Konfirmasi Instan WA</span>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="resName" class="block text-xs font-bold uppercase tracking-wider text-[#2B0F06] mb-1.5 cursor-pointer">Nama Lengkap *</label>
+                  <input id="resName" type="text" required placeholder="Contoh: Raka Pratama" class="w-full px-4 py-3 rounded-xl bg-[#F5E6CC]/60 border border-[#2B0F06]/25 text-sm font-medium focus:outline-none focus:border-[#C86428]" />
+                </div>
+                <div>
+                  <label for="resPhone" class="block text-xs font-bold uppercase tracking-wider text-[#2B0F06] mb-1.5 cursor-pointer">Nomor WhatsApp *</label>
+                  <input id="resPhone" type="tel" required placeholder="Contoh: 081234567890" class="w-full px-4 py-3 rounded-xl bg-[#F5E6CC]/60 border border-[#2B0F06]/25 text-sm font-medium focus:outline-none focus:border-[#C86428]" />
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div>
+                  <label for="resDate" onclick="openPickerById('resDate')" class="block text-xs font-bold uppercase tracking-wider text-[#2B0F06] mb-1.5 cursor-pointer">Tanggal *</label>
+                  <input id="resDate" type="date" required onclick="if(this.showPicker) this.showPicker()" class="w-full px-4 py-3 rounded-xl bg-[#F5E6CC]/60 border border-[#2B0F06]/25 text-sm font-medium cursor-pointer focus:outline-none focus:border-[#C86428]" />
+                </div>
+                <div>
+                  <label for="resTime" onclick="openPickerById('resTime')" class="block text-xs font-bold uppercase tracking-wider text-[#2B0F06] mb-1.5 cursor-pointer">Jam Datang *</label>
+                  <input id="resTime" type="time" required value="18:30" onclick="if(this.showPicker) this.showPicker()" class="w-full px-4 py-3 rounded-xl bg-[#F5E6CC]/60 border border-[#2B0F06]/25 text-sm font-medium cursor-pointer focus:outline-none focus:border-[#C86428]" />
+                </div>
+                <div>
+                  <label for="resPax" class="block text-xs font-bold uppercase tracking-wider text-[#2B0F06] mb-1.5 cursor-pointer">Jumlah Tamu *</label>
+                  <input
+                    id="resPax"
+                    type="text"
+                    list="paxOptionsList"
+                    required
+                    placeholder="Ketik misal: 4 Orang"
+                    class="w-full px-4 py-3 rounded-xl bg-[#F5E6CC]/60 border border-[#2B0F06]/25 text-sm font-medium focus:outline-none focus:border-[#C86428]"
+                  />
+                  <datalist id="paxOptionsList">
+                    <option value="2 Orang"></option>
+                    <option value="4 Orang"></option>
+                    <option value="6 Orang"></option>
+                    <option value="10 Orang (Grup)"></option>
+                  </datalist>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="resArea" class="block text-xs font-bold uppercase tracking-wider text-[#2B0F06] mb-1.5 cursor-pointer">Pilihan Area Meja</label>
+                  <select
+                    id="resArea"
+                    class="w-full px-4 py-3 rounded-xl bg-[#F5E6CC]/60 border border-[#2B0F06]/25 text-sm font-semibold cursor-pointer focus:outline-none focus:border-[#C86428]"
+                  >
+                    <option value="Indoor AC (Non-Smoking)">Indoor AC (Non-Smoking)</option>
+                    <option value="Semi-Outdoor Teras Senja (Smoking)">Semi-Outdoor Teras Senja (Smoking)</option>
+                    <option value="Meja Panjang Komunitas">Meja Panjang Komunitas</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="resNotes" class="block text-xs font-bold uppercase tracking-wider text-[#2B0F06] mb-1.5 cursor-pointer">Catatan Tambahan (Opsional)</label>
+                  <input id="resNotes" type="text" placeholder="Dekat colokan / sekalian pesan menu..." class="w-full px-4 py-3 rounded-xl bg-[#F5E6CC]/60 border border-[#2B0F06]/25 text-sm font-medium focus:outline-none focus:border-[#C86428]" />
+                </div>
+              </div>
+
+              <button type="submit" class="w-full py-4 rounded-full bg-[#2B0F06] hover:bg-[#C86428] text-[#FDF6EA] font-bold text-sm tracking-wide transition-colors flex items-center justify-center gap-2 cursor-pointer">
+                <span>Kirim Reservasi Meja via WhatsApp</span>
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =====================================================================
+       7. FOOTER (1 TOMBOL GOOGLE MAPS SAJA)
+       ===================================================================== -->
+  <footer class="w-full bg-[#2B0F06] text-[#FDF6EA] py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="text-center sm:text-left">
+        <div class="font-display font-extrabold text-lg tracking-wider text-[#FDF6EA]">SATU SENJA CAFE — CIMANGGIS DEPOK</div>
+        <p class="text-xs sm:text-sm text-[#FDF6EA]/75 mt-1">
+          Jl. Menpor No.9a, Tugu, Kec. Cimanggis, Kota Depok, Jawa Barat 16451 • Buka Setiap Hari 11.30 – 02.00 WIB
+        </p>
+      </div>
+
+      <!-- Hanya 1 Tombol Google Maps di Footer -->
+      <div>
+        <a
+          href="https://maps.google.com/?cid=5610806035540478875"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#C86428] hover:bg-[#FDF6EA] text-[#FDF6EA] hover:text-[#2B0F06] text-xs sm:text-sm font-bold transition-colors"
+        >
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Petunjuk Lokasi Google Maps</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // NOMOR WHATSAPP ADMIN SATU SENJA (Untuk Reservasi Meja)
+    const WHATSAPP_NUMBER = '6281298765432';
+
+    // KATEGORI 1 BARIS RATA DENGAN TAB "SEMUA MENU"
+    const CATEGORIES = [
+      { id: 'all', label: 'Semua Menu' },
+      { id: 'paket', label: 'Paket Promo' },
+      { id: 'kopi', label: 'Coffee Senja & Black' },
+      { id: 'non_kopi', label: 'Non-Coffee & Tea' },
+      { id: 'cemilan', label: 'Roti Bakar & Cemilan' },
+      { id: 'makanan', label: 'Nasi Goreng, Rice Bowl & Pasta' }
+    ];
+
+    // DAFTAR MENU AUTENTIK SATU SENJA DEPOK (Harga & Nama Menu Sesuai Kedai)
+    const MENU_ITEMS = [
+      // 1. PAKET PROMO
+      {
+        id: 'promo_roti_aren',
+        category: 'paket',
+        badge: 'PROMO HEMAT',
+        name: 'Paket Promo: Kopi Senja Aren + Roti Bakar',
+        desc: 'Bundling hemat 1 Es Kopi Senja Aren + 1 porsi Roti Bakar lumer pilihanmu.',
+        image: 'menu kopi dan roti.jpg',
+        options: [
+          { label: 'Choco Cheese', price: 36000 },
+          { label: 'Meltinside', price: 36000 }
+        ]
+      },
+      {
+        id: 'promo_nasgor_aren',
+        category: 'paket',
+        badge: 'PAKET KENYANG',
+        name: 'Paket Promo: Nasi Goreng Senja + Kopi Aren',
+        desc: '1 porsi Nasi Goreng khas Satu Senja dengan telur + 1 Es Kopi Senja Aren segar.',
+        image: 'menu kopi dan nasgor.jpg',
+        options: [
+          { label: 'Nasgor Senja', price: 39000 },
+          { label: 'Nasgor Oriental', price: 39000 }
+        ]
+      },
+
+      // 2. COFFEE SENJA & BLACK COFFEE
+      {
+        id: 'senja_aren',
+        category: 'kopi',
+        badge: 'SIGNATURE',
+        name: 'Es Kopi Senja Aren',
+        desc: 'Racikan khas espresso Satu Senja dengan susu segar creamy dan gula aren murni.',
+        image: 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=400&q=80',
+        options: [
+          { label: 'Regular 350 ml', price: 23000 },
+          { label: 'Strong 350 ml', price: 25000 }
+        ]
+      },
+      {
+        id: 'caffe_latte',
+        category: 'kopi',
+        name: 'Caffè Latte / Cappuccino',
+        desc: 'Perpaduan espresso penuh karakter dengan susu steamed lembut; tersedia panas atau es.',
+        image: 'latte.jpg',
+        options: [
+          { label: 'Hot 250 ml', price: 24000 },
+          { label: 'Iced 350 ml', price: 26000 }
+        ]
+      },
+      {
+        id: 'salted_caramel',
+        category: 'kopi',
+        badge: 'FAVORIT',
+        name: 'Salted Caramel / Hazelnut Latte',
+        desc: 'Espresso dengan susu lembut dan pilihan sirup Salted Caramel gurih atau Hazelnut.',
+        image: 'https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=400&q=80',
+        options: [
+          { label: 'Salted Caramel', price: 28000 },
+          { label: 'Hazelnut Latte', price: 26000 }
+        ]
+      },
+      {
+        id: 'hazelnut_mocca',
+        category: 'kopi',
+        name: 'Hazelnut Mocca',
+        desc: 'Kombinasi espresso, cokelat pekat, dan aroma kacang hazelnut yang harum.',
+        image: 'hazelnut.jpg',
+        options: [
+          { label: 'Hot 250 ml', price: 26000 },
+          { label: 'Iced 350 ml', price: 28000 }
+        ]
+      },
+      {
+        id: 'americano_black',
+        category: 'kopi',
+        name: 'Americano / Espresso',
+        desc: 'Kopi hitam murni dari ekstraksi biji Arabika untuk penikmat kopi tanpa susu.',
+        image: 'Iced Americano.jpg',
+        options: [
+          { label: 'Espresso 60 ml', price: 15000 },
+          { label: 'Hot 250 ml', price: 24000 },
+          { label: 'Iced 350 ml', price: 26000 }
+        ]
+      },
+
+      // 3. NON-COFFEE & SENJA ICE TEA
+      {
+        id: 'red_velvet_cheese',
+        category: 'non_kopi',
+        badge: 'POPULER',
+        name: 'Red Velvet / Taro Latte',
+        desc: 'Minuman non-kopi lembut dengan tekstur creamy yang pas dinikmati dingin maupun hangat.',
+        image: 'taro.jpg',
+        options: [
+          { label: 'Red Velvet', price: 25000 },
+          { label: 'Taro Latte', price: 25000 },
+          { label: 'Hot 250 ml', price: 23000 }
+        ]
+      },
+      {
+        id: 'matcha_coklat',
+        category: 'non_kopi',
+        name: 'Matcha / Signature Coklat',
+        desc: 'Pilihan teh hijau Matcha Jepang atau Coklat pekat yang dikocok dengan susu segar.',
+        image: 'matcha.jpg',
+        options: [
+          { label: 'Iced Matcha', price: 28000 },
+          { label: 'Iced Coklat', price: 25000 },
+          { label: 'Milo Dino', price: 23000 }
+        ]
+      },
+      {
+        id: 'senja_ice_tea',
+        category: 'non_kopi',
+        name: 'Senja Fruit Ice Tea & Fizzy',
+        desc: 'Teh dingin segar dengan ekstrak buah asli atau sensasi soda fizzy yang menyegarkan.',
+        image: 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=400&q=80',
+        options: [
+          { label: 'Lychee Tea', price: 23000 },
+          { label: 'Lemon Tea', price: 23000 },
+          { label: 'Fizzy Berry', price: 23000 }
+        ]
+      },
+
+      // 4. ROTI BAKAR & CEMILAN
+      {
+        id: 'roti_bakar_senja',
+        category: 'cemilan',
+        badge: 'WAJIB COBA',
+        name: 'Roti Bakar Satu Senja',
+        desc: 'Roti bakar tebal panggang mentega dengan isian manis lumer atau gurih daging ayam.',
+        image: 'roti.jpg',
+        options: [
+          { label: 'Choco Cheese', price: 22000 },
+          { label: 'Meltinside', price: 22000 },
+          { label: 'Mexican Chicken', price: 25000 }
+        ]
+      },
+      {
+        id: 'mix_platter',
+        category: 'cemilan',
+        badge: 'SHARING',
+        name: 'Mix Platter & Kentang Kenyang',
+        desc: 'Sepiring cemilan hangat berisi kentang goreng, sosis, dan olahan gurih untuk teman ngobrol.',
+        image: 'kentang.jpg',
+        options: [
+          { label: 'Kentang Goreng', price: 18000 },
+          { label: 'Kentang Kenyang', price: 20000 },
+          { label: 'Mix Platter', price: 30000 }
+        ]
+      },
+      {
+        id: 'cireng_chicken_pop',
+        category: 'cemilan',
+        name: 'Cireng Renyah & Chicken Pop Thai',
+        desc: 'Cireng goreng garing dengan saus cocolan pedas manis atau potongan ayam goreng saus Thailand.',
+        image: 'cireng.jpg',
+        options: [
+          { label: 'Cireng Senja', price: 20000 },
+          { label: 'Chicken Pop Thai', price: 22000 }
+        ]
+      },
+
+      // 5. MAKANAN BERAT (NASI GORENG, RICE BOWL & PASTA)
+      {
+        id: 'nasgor_senja',
+        category: 'makanan',
+        badge: 'BEST SELLER',
+        name: 'Nasi Goreng Senja / Cakalang / Oriental',
+        desc: 'Nasi goreng racikan dapur Satu Senja dengan bumbu rempah, telur, dan kerupuk renyah.',
+        image: 'https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=400&q=80',
+        options: [
+          { label: 'Nasgor Senja', price: 25000 },
+          { label: 'Oriental', price: 25000 },
+          { label: 'Cakalang', price: 26000 }
+        ]
+      },
+      {
+        id: 'rice_bowl_beef',
+        category: 'makanan',
+        name: 'Rice Bowl Beef Teriyaki / Black Pepper',
+        desc: 'Nasi putih hangat dengan tumisan daging sapi iris lembut dalam balutan saus Teriyaki atau Lada Hitam.',
+        image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400&q=80',
+        options: [
+          { label: 'Beef Teriyaki', price: 35000 },
+          { label: 'Black Pepper', price: 35000 }
+        ]
+      },
+      {
+        id: 'rice_bowl_chicken',
+        category: 'makanan',
+        name: 'Rice Bowl Ayam Sambal Matah / Curry / Cakalang',
+        desc: 'Pilihan Rice Bowl mengenyangkan dengan ayam crispy sambal matah Bali, kuah kari, atau ikan cakalang.',
+        image: 'rice bowl ayam.jpg',
+        options: [
+          { label: 'Sambal Matah', price: 27000 },
+          { label: 'Cakalang', price: 28000 },
+          { label: 'Chicken Curry', price: 32000 }
+        ]
+      },
+      {
+        id: 'pasta_senja',
+        category: 'makanan',
+        name: 'Spaghetti Aglio Olio / Carbonara / Cakalang',
+        desc: 'Pasta spaghetti al dente dengan pilihan tumisan bawang putih pedas, saus creamy, atau suwiran cakalang.',
+        image: 'https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=400&q=80',
+        options: [
+          { label: 'Aglio Olio', price: 27000 },
+          { label: 'Carbonara', price: 27000 },
+          { label: 'Cakalang', price: 28000 }
+        ]
+      },
+      {
+        id: 'cordon_bleu_ramen',
+        category: 'makanan',
+        name: 'Chicken Cordon Bleu & Ramen Hangat',
+        desc: 'Hidangan utama spesial ayam gulung keju leleh goreng tepung atau semangkuk mie ramen kuah hangat.',
+        image: 'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=400&q=80',
+        options: [
+          { label: 'Ramen Hangat', price: 25000 },
+          { label: 'Cordon Bleu', price: 35000 }
+        ]
+      }
+    ];
+
+    let activeCategory = 'all';
+
+    function formatRupiah(num) {
+      return 'Rp ' + num.toLocaleString('id-ID');
+    }
+
+    function formatShortPrice(num) {
+      return (num / 1000) + 'K';
+    }
+
+    function renderMenuSection() {
+      const filterBar = document.getElementById('categoryFilterBar');
+      const board = document.getElementById('menuBoardContainer');
+
+      // Render 1-Row Category Pills
+      filterBar.innerHTML = CATEGORIES.map(cat => {
+        const active = cat.id === activeCategory;
+        return `<button onclick="setCategory('${cat.id}')" class="whitespace-nowrap px-5 py-2.5 rounded-full text-xs font-bold tracking-wide transition-colors cursor-pointer ${
+          active
+            ? 'bg-[#2B0F06] text-[#FDF6EA]'
+            : 'bg-[#F5E6CC] text-[#2B0F06] hover:bg-[#2B0F06]/15 border border-[#2B0F06]/15'
+        }">${cat.label}</button>`;
+      }).join('');
+
+      const filtered = activeCategory === 'all'
+        ? MENU_ITEMS
+        : MENU_ITEMS.filter(item => item.category === activeCategory);
+
+      // Render Static Digital Catalog Rows (Label Varian Rapi Tanpa Terpotong di Tepi Kanan)
+      board.innerHTML = filtered.map(item => {
+        const primaryPrice = item.options[0].price;
+
+        const staticVariantTags = item.options.map(opt => {
+          return `<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-[#F5E6CC] text-[#2B0F06] border border-[#2B0F06]/20 whitespace-nowrap">${opt.label} • <strong class="font-mono-tabular ml-1 text-[#C86428]">${formatShortPrice(opt.price)}</strong></span>`;
+        }).join('');
+
+        return `
+          <article class="py-6 border-b border-[#2B0F06]/15 flex items-start gap-4 sm:gap-5 group">
+            <!-- Thumbnail Foto Menu Lebih Besar & Bersih Tanpa Tertutup Label -->
+            <div class="relative w-28 h-28 sm:w-36 sm:h-36 rounded-2xl overflow-hidden bg-[#2B0F06] border border-[#2B0F06]/20 shrink-0 shadow-xs">
+              <img src="${item.image}" alt="${item.name}" loading="lazy" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+            </div>
+
+            <!-- Rincian Menu Statis: Badge Seragam, Nama, Garis Titik-Titik, Harga & Daftar Varian Utuh -->
+            <div class="flex-1 min-w-0 flex flex-col justify-between min-h-[7rem] sm:min-h-[9rem]">
+              <div>
+                ${item.badge ? `<span class="inline-block whitespace-nowrap mb-1.5 px-2.5 py-0.5 rounded bg-[#C86428] text-[#FDF6EA] text-[10px] font-extrabold uppercase tracking-wider">${item.badge}</span>` : ''}
+                <div class="flex items-baseline justify-between gap-2">
+                  <h3 class="font-display font-extrabold text-base sm:text-lg text-[#2B0F06] leading-snug">${item.name}</h3>
+                  <span class="hidden sm:block flex-1 menu-leader mx-2"></span>
+                  <span class="font-mono-tabular font-extrabold text-base sm:text-lg text-[#C86428] shrink-0 whitespace-nowrap">${formatRupiah(primaryPrice)}</span>
+                </div>
+
+                <p class="text-xs sm:text-sm text-[#2B0F06]/75 mt-1.5 leading-relaxed">${item.desc}</p>
+              </div>
+
+              <!-- Daftar Varian & Ukuran Statis Utuh Tanpa Terpotong -->
+              <div class="mt-3 pt-2 flex flex-wrap items-center gap-1.5">
+                ${staticVariantTags}
+              </div>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    window.openPickerById = function(inputId) {
+      const el = document.getElementById(inputId);
+      if (!el) return;
+      el.focus();
+      if (typeof el.showPicker === 'function') {
+        try { el.showPicker(); } catch (err) {}
+      }
+    };
+
+    window.setCategory = function(catId) {
+      activeCategory = catId;
+      renderMenuSection();
+    };
+
+    // Formulir Reservasi Meja ke WhatsApp
+    document.getElementById('reservationForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('resName').value.trim();
+      const phone = document.getElementById('resPhone').value.trim();
+      const date = document.getElementById('resDate').value;
+      const time = document.getElementById('resTime').value;
+      const pax = document.getElementById('resPax').value;
+      const area = document.getElementById('resArea').value;
+      const notes = document.getElementById('resNotes').value.trim() || '-';
+
+      const msg =
+        `Halo Admin *Satu Senja Cafe*, saya ingin melakukan *Reservasi Meja*:\n\n` +
+        `*Nama Pemesan:* ${name}\n` +
+        `*No. WhatsApp:* ${phone}\n` +
+        `*Tanggal:* ${date}\n` +
+        `*Jam Kedatangan:* ${time} WIB\n` +
+        `*Jumlah Tamu:* ${pax}\n` +
+        `*Pilihan Area:* ${area}\n` +
+        `*Catatan:* ${notes}\n\n` +
+        `Mohon info ketersediaan mejanya. Terima kasih!`;
+
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+    });
+
+    // Set default date hari ini pada input reservasi
+    document.getElementById('resDate').valueAsDate = new Date();
+
+    // Mobile Menu Toggle & Close on Click
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenuPanel = document.getElementById('mobileMenuPanel');
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenuPanel.classList.toggle('hidden');
+    });
+
+    // Uniform Active Section Highlight (Scroll-Spy & Click)
+    function setActiveSectionNav(sectionId) {
+      document.querySelectorAll('.nav-pill').forEach(el => {
+        if (el.dataset.section === sectionId) {
+          el.className = 'nav-pill px-4 py-2 rounded-full text-xs font-bold tracking-wide transition-colors bg-[#C86428] text-[#FDF6EA]';
+        } else {
+          el.className = 'nav-pill px-4 py-2 rounded-full text-xs font-bold tracking-wide transition-colors text-[#2B0F06] hover:bg-[#2B0F06]/10';
+        }
+      });
+
+      document.querySelectorAll('.mobile-nav-pill').forEach(el => {
+        if (el.dataset.section === sectionId) {
+          el.className = 'mobile-nav-pill block py-2.5 px-4 rounded-xl font-bold text-sm transition-colors bg-[#C86428] text-[#FDF6EA]';
+        } else {
+          el.className = 'mobile-nav-pill block py-2.5 px-4 rounded-xl font-bold text-sm transition-colors text-[#2B0F06] hover:bg-[#F5E6CC]';
+        }
+      });
+    }
+
+    document.querySelectorAll('.nav-pill, .mobile-nav-pill').forEach(link => {
+      link.addEventListener('click', () => {
+        setActiveSectionNav(link.dataset.section);
+        mobileMenuPanel.classList.add('hidden');
+      });
+    });
+
+    // Scroll-spy observer agar warna button section aktif berpindah otomatis saat di-scroll
+    const sections = ['beranda', 'keunggulan', 'promo', 'menu', 'reservasi'];
+    window.addEventListener('scroll', () => {
+      let current = 'beranda';
+      for (const secId of sections) {
+        const el = document.getElementById(secId);
+        if (el && window.scrollY >= el.offsetTop - 180) {
+          current = secId;
+        }
+      }
+      setActiveSectionNav(current);
+    }, { passive: true });
+
+    renderMenuSection();
+  </script>
+</body>
+</html>
