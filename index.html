@@ -329,11 +329,39 @@
           </p>
         </div>
 
-        <!-- Daftar 3 Banner Informasi Promo dengan Label 1 Baris & Warna 100% Seragam -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Daftar 3 Banner Informasi Promo (Slide ke samping di HP + Tombol Panah Segitiga, Grid 3 Kolom Tetap di Desktop) -->
+        <div class="relative">
+          <!-- Tombol Panah Segitiga Kiri (Hanya tampil di HP) -->
+          <button
+            type="button"
+            onclick="slidePromoMobile(-1)"
+            aria-label="Geser Promo ke Kiri"
+            class="md:hidden absolute -left-2 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-[#C86428] text-[#FDF6EA] border-2 border-[#FDF6EA] shadow-lg flex items-center justify-center active:scale-95 transition-transform cursor-pointer"
+          >
+            <svg class="w-3.5 h-3.5 fill-current -ml-0.5" viewBox="0 0 16 16">
+              <polygon points="11,2 4,8 11,14" />
+            </svg>
+          </button>
+
+          <!-- Tombol Panah Segitiga Kanan (Hanya tampil di HP) -->
+          <button
+            type="button"
+            onclick="slidePromoMobile(1)"
+            aria-label="Geser Promo ke Kanan"
+            class="md:hidden absolute -right-2 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-[#C86428] text-[#FDF6EA] border-2 border-[#FDF6EA] shadow-lg flex items-center justify-center active:scale-95 transition-transform cursor-pointer"
+          >
+            <svg class="w-3.5 h-3.5 fill-current ml-0.5" viewBox="0 0 16 16">
+              <polygon points="5,2 12,8 5,14" />
+            </svg>
+          </button>
+
+          <div
+            id="promoSliderTrack"
+            class="flex md:grid md:grid-cols-3 gap-4 md:gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory scroll-smooth no-scrollbar pb-2 md:pb-0"
+          >
 
           <!-- BANNER INFORMASI PROMO 1: DISKON 10% MAHASISWA & PELAJAR -->
-          <div class="relative rounded-3xl bg-[#FDF6EA] text-[#2B0F06] overflow-hidden flex flex-col border-2 border-[#F5E6CC]">
+          <div class="w-full shrink-0 snap-center md:w-auto md:shrink relative rounded-3xl bg-[#FDF6EA] text-[#2B0F06] overflow-hidden flex flex-col border-2 border-[#F5E6CC]">
             <div class="relative w-full aspect-[16/9] bg-[#F5E6CC] overflow-hidden">
               <img
                 src="kopi party.jpg"
@@ -383,7 +411,7 @@
           </div>
 
           <!-- BANNER INFORMASI PROMO 2: KOPI SENJA AREN + ROTI BAKAR -->
-          <div class="relative rounded-3xl bg-[#FDF6EA] text-[#2B0F06] overflow-hidden flex flex-col border-2 border-[#F5E6CC]">
+          <div class="w-full shrink-0 snap-center md:w-auto md:shrink relative rounded-3xl bg-[#FDF6EA] text-[#2B0F06] overflow-hidden flex flex-col border-2 border-[#F5E6CC]">
             <div class="relative w-full aspect-[16/9] bg-[#F5E6CC] overflow-hidden">
               <img
                 src="kopi dan roti.png"
@@ -434,7 +462,7 @@
           </div>
 
           <!-- BANNER INFORMASI PROMO 3: NASI GORENG SENJA + ES KOPI SENJA AREN -->
-          <div class="relative rounded-3xl bg-[#FDF6EA] text-[#2B0F06] overflow-hidden flex flex-col border-2 border-[#F5E6CC]">
+          <div class="w-full shrink-0 snap-center md:w-auto md:shrink relative rounded-3xl bg-[#FDF6EA] text-[#2B0F06] overflow-hidden flex flex-col border-2 border-[#F5E6CC]">
             <div class="relative w-full aspect-[16/9] bg-[#F5E6CC] overflow-hidden">
               <img
                 src="nasgor dan aren.png"
@@ -484,6 +512,7 @@
             </div>
           </div>
 
+          </div>
         </div>
       </div>
     </section>
@@ -1003,6 +1032,14 @@
     window.setCategory = function(catId) {
       activeCategory = catId;
       renderMenuSection();
+    };
+
+    // Fungsi geser ke samping (slide) untuk kartu Promo di tampilan HP
+    window.slidePromoMobile = function(direction) {
+      const track = document.getElementById('promoSliderTrack');
+      if (!track) return;
+      const step = track.clientWidth + 16;
+      track.scrollBy({ left: direction * step, behavior: 'smooth' });
     };
 
     // Formulir Reservasi Meja ke WhatsApp
